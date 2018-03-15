@@ -1,30 +1,9 @@
 module GameState where
+import Function
 import System.Random
 
-data Function = Addition Int | Multiplication Int | Division Int | Exponentiation Int
 
-class Exceutable a where
-   execute :: a -> Int -> Int
 
-instance Exceutable Function where 
-   execute (Addition i) = (+i)
-   execute (Multiplication i) = (*i)
-   execute (Division i) = flip quot i
-   execute (Exponentiation i) = flip (^) i
-
-instance Show Function where
-   show (Addition i)
-      | i >= 0 = "x+" ++ (show i)
-      | i < 0 = "x" ++ (show i)
-   show (Multiplication i)
-      | i >= 0 = "x*" ++ (show i)
-      | i < 0 = "x*(" ++ (show i) ++ ")"
-   show (Division i)
-      | i >= 0 = "x/" ++ (show i)
-      | i < 0 = "x/(" ++ (show i) ++ ")"
-   show (Exponentiation i)
-      | i >= 0 = "x^" ++ (show i)
-      | i < 0 = "x^(" ++ (show i) ++ ")"
 data PlayerState = PlayerState {
    index :: Int,
    score :: Int,
