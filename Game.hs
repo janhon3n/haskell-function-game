@@ -1,13 +1,9 @@
 import GameState
+import HelperFunctions
 import Data.List (maximumBy)
 import Data.Function (on)
 import System.Random
 
-deleteElementAtIndex :: Int -> [a] -> [a]
-deleteElementAtIndex _ []     = []
-deleteElementAtIndex i (a:as)
-  | i == 0    = as
-  | otherwise = a : deleteElementAtIndex (i-1) as
 
 initPlayerState :: Int -> StdGen -> (PlayerState, StdGen)
 initPlayerState i g = do
