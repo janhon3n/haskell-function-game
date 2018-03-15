@@ -10,7 +10,7 @@ instance Exceutable Function where
    execute (Addition i) = (+i)
    execute (Multiplication i) = (*i)
    execute (Division i) = flip quot i
-   execute (Exponentiation i) = flip quot i
+   execute (Exponentiation i) = flip (^) i
 
 instance Show Function where
    show (Addition i)
