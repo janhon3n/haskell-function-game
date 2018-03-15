@@ -1,24 +1,14 @@
 module GameState where
+import Player
 import Function
 import System.Random
 
 
 
-data PlayerState = PlayerState {
-   index :: Int,
-   score :: Int,
-   hand :: [Function]
-}
-
 data GameState = GameState {
    turn :: Int,
    playerStates :: [PlayerState]
 }
-instance Show PlayerState where
-   show (PlayerState {index=index, score=score, hand=hand}) = text
-      where
-         text = "Player " ++ (show index) ++ "\n" ++ "Score: " ++ (show score) ++ "\n" ++ drawHand hand ++ "\n"
-         drawHand hand = "Hand: " ++ (concat $ map (\(i,x) -> i ++ " <==> " ++ (show x) ++ "  ") (zip (map (:[]) ['a'..]) hand))
 
 instance Show GameState where
    show (GameState {turn=turn, playerStates=playerStates}) = "\n" ++ (concat $ map (\x -> (show x) ++ "\n") playerStates)
